@@ -12,8 +12,10 @@ class UI {
   }
 
   paint(weather) {
-    this.location.textContent = weather.name;
-    this.desc.textContent = weather.weather[0].description;
+    this.location.textContent = weather.name + ', ' + weather.sys.country;
+    this.desc.textContent =
+      weather.weather[0].description.charAt(0).toUpperCase() +
+      weather.weather[0].description.slice(1);
     this.string.textContent = weather.main.temp + '˚C';
     this.icon.setAttribute(
       'src',
